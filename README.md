@@ -1,6 +1,6 @@
 PCTV 461e Fix for Raspberry Pi4 running Kernal 4.19.75-v7l+
 
-Added the following to the config file "over_voltage=2" this extends the time before the TVHEADEND "No Signal error" occurs but doesn;t fix it entirely.
+Added the following to the config file "over_voltage=2" this extends the time before the TVHEADEND "No Signal error" occurs but doesn't fix it entirely.
 
 Changed the following lines in "etc/default/tvheadend" to enable auto loggin file 
 
