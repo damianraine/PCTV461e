@@ -4,12 +4,8 @@ Added the following to the config file "over_voltage=2" this extends the time be
 
 Changed the following lines in "etc/default/tvheadend" to enable auto loggin file 
 
-# TVH_DEBUG
-#   if set to 1 will output debug to syslog
 TVH_DEBUG=1
 
-# TVH_ARGS
-#   add any other arguments
 TVH_ARGS="-l /home/hts/log/tvheadend.log"
 
 
