@@ -2,7 +2,7 @@
 
 #Checks the No Signal erro hasn't occured within TVHEADEND 
 
-if [[ $(cat /home/hts/log/tvheadend.log) == *" "* ]]; then
+if [[ $(cat /home/hts/log/tvheadend.log) == *"No input detected"* ]]; then
 
 	echo "Turning off tvheadend"
 	sudo service tvheadend stop
@@ -11,7 +11,7 @@ if [[ $(cat /home/hts/log/tvheadend.log) == *" "* ]]; then
 	sudo rm /home/hts/log/tvheadend.log
 
         echo "Resetting USB"
-	sudo ./home/hts/usb/usbreset /dev/bus/usb/001/003
+	sudo /home/hts/usb/usbreset /dev/bus/usb/001/003
 
 	echo "USB Reset"
 	sudo service tvheadend start
@@ -24,5 +24,5 @@ if [[ $(cat /home/hts/log/tvheadend.log) == *" "* ]]; then
 else
 
 	echo "PCTV 461e live"
-
+	sudo rm /home/hts/log/tvheadend.log
 fi
