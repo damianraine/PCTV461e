@@ -2,7 +2,7 @@
 
 #Checks the No Signal erro hasn't occured within TVHEADEND 
 
-if [[ $(cat /home/hts/log/tvheadend.log) == *"No input detected"* ]]; then
+if [[ $(cat /home/hts/log/tvheadend.log) == *"No input source"* ]]; then
 
 	echo "Turning off tvheadend"
 	sudo service tvheadend stop
