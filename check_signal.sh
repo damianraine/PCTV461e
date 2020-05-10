@@ -2,7 +2,9 @@
 
 #Checks the No Signal erro hasn't occured within TVHEADEND 
 
-if [[ $(cat /home/hts/log/tvheadend.log) == *"No input source available"* ]]; then
+if [[ $(
+		cat /home/hts/log/tvheadend.log) == *"poll TIMEOUT"*
+]]; then
 
 	echo "Turning off tvheadend"
 	sudo service tvheadend stop
