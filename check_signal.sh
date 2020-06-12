@@ -2,21 +2,20 @@
 
 #Checks the No Signal erro hasn't occured within TVHEADEND 
 
-if [[ $(
-		cat /home/hts/log/tvheadend.log) == *"poll TIMEOUT"*
-]]; then
+if [ $(cat /home/hts/log/tvheadend.log) == *"FE_READ_STATUS error No such device"*] || [ $(cat /home/hts/log/tvheadend.log) == *"subscription: 021A"*] ; then
+
 
 	echo "Turning off tvheadend"
-	sudo service tvheadend stop
+	service tvheadend stop
 
 	echo "Deleting log file"
-	sudo rm /home/hts/log/tvheadend.log
+	rm /home/hts/log/tvheadend.log
 
         echo "Resetting USB"
-	sudo /home/hts/usb/usbreset /dev/bus/usb/001/003
+	/home/hts/usb/usbreset /dev/bus/usb/001/003
 
 	echo "USB Reset"
-	sudo service tvheadend start
+	service tvheadend start
 
 	echo "TV turned on"
 	tvheadend --libav
@@ -26,5 +25,5 @@ if [[ $(
 else
 
 	echo "PCTV 461e live"
-	sudo rm /home/hts/log/tvheadend.log
+	rm /home/hts/log/tvheadend.log
 fi
