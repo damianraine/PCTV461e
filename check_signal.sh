@@ -2,8 +2,7 @@
 
 #Checks the No Signal erro hasn't occured within TVHEADEND 
 
-if [ $(cat /home/hts/log/tvheadend.log) == *"FE_READ_STATUS error No such device"*] || [ $(cat /home/hts/log/tvheadend.log) == *"subscription: 021A"*] ; then
-
+if [[ $(cat /home/hts/log/tvheadend.log) == *"poll TIMEOUT"* ]] ; then
 
 	echo "Turning off tvheadend"
 	service tvheadend stop
